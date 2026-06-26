@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useToken } from "../_lib/token-provider";
+import { useAuth } from "@/lib/di/app-runtime";
 import { useReturnApi } from "../_lib/api";
 import { clearMasterCache } from "../_lib/master-cache";
 import type {
@@ -126,7 +126,7 @@ function usePosOrderCode(): string | null {
 }
 
 export function useReturnForm() {
-  const { token } = useToken();
+  const { token } = useAuth();
   const orderCode = usePosOrderCode();
   const api = useReturnApi();
 
@@ -214,7 +214,10 @@ export function useReturnForm() {
     if (autoSearchedRef.current) return;
     if (token && orderCode) {
       autoSearchedRef.current = true;
-      handleSearch(orderCode);
+      const timer = window.setTimeout(() => {
+        void handleSearch(orderCode);
+      }, 0);
+      return () => window.clearTimeout(timer);
     }
   }, [token, orderCode, handleSearch]);
 

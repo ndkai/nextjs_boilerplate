@@ -3,7 +3,7 @@ import { buildInitLines, calcSummary, findByBarcode, DEMO_ORDER } from "../_hook
 import type { OutputSaleDetailRes } from "../_lib/types";
 
 const details = DEMO_ORDER.OutputSaleDetail!;
-const [milk, diaper, wipe] = details; // Pid: 101, 102, 103
+const [, , wipe] = details; // Pid: 103
 
 describe("buildInitLines", () => {
   it("combo (IsReturnWithCombo) → chọn sẵn, SL đầy", () => {

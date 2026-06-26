@@ -1,4 +1,4 @@
-import type { InputSaleRes } from "../../inputsale/_lib/types";
+import type { InputSaleRes } from "@/lib/types/input-sale";
 
 export const DEMO_RETURNS: (InputSaleRes & { Status: "Hoàn thành" | "Đang xử lý" | "Hủy" })[] = [
   { ISID: 1,  InputSaleID: "IS-2024-110234", OutputSaleID: "OS-2024-002831", CustomerName: "Nguyễn Thị Mai",   TotalAmount: 1_690_000, TotalQuantity: 3, CreatedDate: "2024-11-10T08:22:00", TotalRecord: 0, Status: "Hoàn thành"    },

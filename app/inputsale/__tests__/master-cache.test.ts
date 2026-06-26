@@ -3,7 +3,7 @@ import { getCachedMaster, clearMasterCache } from "../_lib/master-cache";
 
 beforeEach(() => {
   clearMasterCache();
-  localStorage.clear();
+  window.localStorage.clear();
 });
 
 describe("getCachedMaster", () => {

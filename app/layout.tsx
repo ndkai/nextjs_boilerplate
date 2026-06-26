@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { TokenProvider } from "@/lib/auth/token-provider";
-import { AuthGate }     from "@/lib/auth/auth-gate";
+import { AppProviders } from "@/lib/app/app-providers";
 
 export const metadata: Metadata = {
   title: { default: "Con Cưng SCA", template: "%s | Con Cưng SCA" },
@@ -18,11 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className="h-full">
       <body className="min-h-full flex flex-col antialiased">
-        <TokenProvider>
-          <AuthGate>
-            {children}
-          </AuthGate>
-        </TokenProvider>
+        <AppProviders>{children}</AppProviders>
       </body>
     </html>
   );

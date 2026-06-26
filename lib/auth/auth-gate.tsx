@@ -1,7 +1,8 @@
 "use client";
 
 import { type ReactNode } from "react";
-import { useToken, type TokenStatus } from "./token-provider";
+import { useAuth } from "@/lib/di/app-runtime";
+import type { TokenStatus } from "./token-provider";
 
 // ── Shared screen styles ──────────────────────────────────────────────────────
 
@@ -102,7 +103,7 @@ const SCREENS: Record<Exclude<TokenStatus, "authenticated">, ReactNode> = {
  * Đặt trong root layout để bảo vệ tất cả các route.
  */
 export function AuthGate({ children }: { children: ReactNode }) {
-  const { status } = useToken();
+  const { status } = useAuth();
   if (status !== "authenticated") return SCREENS[status];
   return <>{children}</>;
 }
