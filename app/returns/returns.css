@@ -47,6 +47,22 @@ body { font-family: "Be Vietnam Pro", sans-serif; background: var(--bg); color: 
 }
 .ret-nav-link:hover { background: #d2e3fc; }
 
+.ret-banner {
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+}
+.ret-banner.loading {
+  background: #e8f0fe;
+  color: var(--primary);
+}
+.ret-banner.error {
+  background: #fce8e6;
+  color: var(--danger);
+}
+
 /* ── Stats bar ───────────────────────────────────────────────── */
 .ret-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);

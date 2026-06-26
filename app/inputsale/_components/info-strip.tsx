@@ -1,7 +1,7 @@
 "use client";
 
 import type { OutputSaleRes } from "../_lib/types";
-import { fmt, fmtDate } from "../_lib/format";
+import { fmt, fmtDate } from "../_lib/formatters/format";
 
 interface Props {
   order: OutputSaleRes | null;
@@ -11,12 +11,11 @@ interface Props {
   deliveryLabel: string;
   onCodeChange: (code: string) => void;
   onSearch: () => void;
-  onDemo: () => void;
 }
 
 export function InfoStrip({
   order, code, loading, paymentLabel, deliveryLabel,
-  onCodeChange, onSearch, onDemo,
+  onCodeChange, onSearch,
 }: Props) {
   return (
     <div className="isr-info-strip">
@@ -37,13 +36,6 @@ export function InfoStrip({
               <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
             </svg>
             Tìm đơn
-          </button>
-          <button
-            className="isr-btn-detail"
-            onClick={onDemo}
-            title="Nạp đơn mẫu để thử quét barcode (không cần backend)"
-          >
-            Demo
           </button>
         </div>
         <div className="isr-info-row">

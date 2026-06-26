@@ -25,7 +25,7 @@ export default function Home() {
 
       <div style={{ textAlign: "center", marginBottom: 40 }}>
         <div style={{ fontSize: 40, marginBottom: 12 }}>🐼</div>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: "#1c1b1f", marginBottom: 6 }}>Con Cưng SCA — Demo</h1>
+        <h1 style={{ fontSize: 26, fontWeight: 700, color: "#1c1b1f", marginBottom: 6 }}>Con Cưng SCA</h1>
         <p style={{ color: "#6b7280", fontSize: 14 }}>Next.js 16 · App Router · Feature-based architecture</p>
       </div>
 
@@ -34,6 +34,7 @@ export default function Home() {
           <Link
             key={f.href}
             href={f.href}
+            className="home-feature-card"
             style={{
               width: 300,
               background: "#fff",
@@ -47,8 +48,6 @@ export default function Home() {
               borderTop: `4px solid ${f.color}`,
               transition: "transform .15s, box-shadow .15s",
             }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 6px 24px rgba(0,0,0,.1)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = "0 1px 4px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.04)"; }}
           >
             <div style={{ width: 44, height: 44, borderRadius: 12, background: f.bg, color: f.color, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontWeight: 700 }}>
               {f.icon}
@@ -63,7 +62,7 @@ export default function Home() {
       </div>
 
       <div style={{ marginTop: 40, fontSize: 12, color: "#9ca3af", textAlign: "center" }}>
-        Dữ liệu demo — không cần backend · Token: tuỳ chỉnh qua URL <code style={{ background: "#f3f4f6", padding: "2px 6px", borderRadius: 4 }}>?token=TEST</code>
+        Token có thể truyền qua URL <code style={{ background: "#f3f4f6", padding: "2px 6px", borderRadius: 4 }}>?token=TEST</code> khi phát triển local.
       </div>
 
     </div>

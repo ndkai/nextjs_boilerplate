@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { buildInitLines, calcSummary, findByBarcode, DEMO_ORDER } from "../_hooks/use-return-form";
+import { TEST_ORDER } from "./fixtures";
+import { buildInitLines, calcSummary, findByBarcode } from "../_lib/domain/return-calculations";
 import type { OutputSaleDetailRes } from "../_lib/types";
 
-const details = DEMO_ORDER.OutputSaleDetail!;
+const details = TEST_ORDER.OutputSaleDetail!;
 const [, , wipe] = details; // Pid: 103
 
 describe("buildInitLines", () => {

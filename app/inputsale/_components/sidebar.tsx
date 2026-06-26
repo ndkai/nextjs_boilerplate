@@ -1,7 +1,7 @@
 "use client";
 
 import type { PromotionReturnReceiptRes, OutputSaleReturnValidateRes } from "../_lib/types";
-import { fmt } from "../_lib/format";
+import { fmt } from "../_lib/formatters/format";
 
 interface Summary {
   total: number;

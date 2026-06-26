@@ -39,7 +39,6 @@ export default function InputSalePage() {
           deliveryLabel={form.deliveryLabel}
           onCodeChange={form.setCode}
           onSearch={() => form.handleSearch()}
-          onDemo={form.loadDemo}
         />
 
         <div className="isr-main">

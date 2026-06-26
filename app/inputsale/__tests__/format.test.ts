@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { fmt, fmtDate } from "../_lib/format";
+import { fmt, fmtDate } from "../_lib/formatters/format";
 
 describe("fmt", () => {
   it("định dạng số theo locale vi-VN", () => {

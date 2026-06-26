@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
-import { getCachedMaster, clearMasterCache } from "../_lib/master-cache";
+import { getCachedMaster, clearMasterCache } from "../_lib/cache/master-cache";
 
 beforeEach(() => {
   clearMasterCache();

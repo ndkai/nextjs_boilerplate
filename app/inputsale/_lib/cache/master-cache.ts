@@ -17,7 +17,7 @@ const MAX_AGE_MS = 24 * 60 * 60 * 1000; // 24h
 const memValue = new Map<string, unknown>();
 const inFlight = new Map<string, Promise<unknown>>();
 
-/** Hash ngắn (djb2) để tạo fingerprint cho token — không lộ token trên key. */
+/** Hash ngắn (djb2) để tạo fingerprint cho token - không lộ token trên key. */
 function hashString(s: string): string {
   let h = 5381;
   for (let i = 0; i < s.length; i++) h = (h * 33) ^ s.charCodeAt(i);

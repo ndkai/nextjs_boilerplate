@@ -1,7 +1,7 @@
 "use client";
 
-import type { ReturnRow } from "../_lib/demo-data";
 import type { SortField, SortDir } from "../_hooks/use-returns-list";
+import type { ReturnRow } from "../_lib/types";
 import { fmt, fmtDate } from "@/lib/format";
 
 interface Props {
@@ -60,12 +60,12 @@ export function ReturnsTable({ rows, sortField, sortDir, page, totalPages, onSor
               <td colSpan={8} className="ret-empty">Không tìm thấy phiếu nào phù hợp.</td>
             </tr>
           ) : rows.map((r, i) => {
-            const st = STATUS_STYLE[r.Status] ?? STATUS_STYLE["Hủy"];
+            const st = r.Status ? STATUS_STYLE[r.Status] : undefined;
             return (
               <tr key={r.ISID} className="ret-row">
                 <td className="muted">{(page - 1) * 8 + i + 1}</td>
                 <td>
-                  <a href={`/inputsale?demo=1`} className="ret-link">{r.InputSaleID}</a>
+                  <a href={`/inputsale?code=${encodeURIComponent(r.OutputSaleID)}`} className="ret-link">{r.InputSaleID}</a>
                 </td>
                 <td className="muted">{r.OutputSaleID}</td>
                 <td>{r.CustomerName}</td>
@@ -73,8 +73,8 @@ export function ReturnsTable({ rows, sortField, sortDir, page, totalPages, onSor
                 <td className="center">{r.TotalQuantity ?? 0}</td>
                 <td className="amount">{fmt(r.TotalAmount)}</td>
                 <td>
-                  <span className="ret-badge" style={{ background: st.bg, color: st.color }}>
-                    {r.Status}
+                  <span className="ret-badge" style={{ background: st?.bg, color: st?.color }}>
+                    {r.Status ?? "—"}
                   </span>
                 </td>
               </tr>

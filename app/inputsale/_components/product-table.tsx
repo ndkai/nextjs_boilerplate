@@ -1,8 +1,8 @@
 "use client";
 
 import type { OutputSaleDetailRes, OutputSaleRes, PaymentTypeRes } from "../_lib/types";
-import type { LineState } from "../_hooks/use-return-form";
-import { fmt } from "../_lib/format";
+import type { LineState } from "../_lib/domain/return-calculations";
+import { fmt } from "../_lib/formatters/format";
 
 interface Props {
   order: OutputSaleRes | null;

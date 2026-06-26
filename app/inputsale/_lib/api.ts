@@ -12,7 +12,7 @@
 import { useMemo } from "react";
 import { useApiClient, useAuth } from "@/lib/di/app-runtime";
 import type { ApiClient } from "@/lib/api/create-api-client";
-import { getCachedMaster } from "./master-cache";
+import { getCachedMaster } from "./cache/master-cache";
 import type {
   InputSaleInitRes,
   InputSaleCreateRes,
