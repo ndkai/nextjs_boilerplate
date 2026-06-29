@@ -11,6 +11,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  output: "standalone",        // build self-contained → .next/standalone/server.js (run with `node`, no Next.js install needed)
   skipTrailingSlashRedirect: true,
 
   async headers() {
