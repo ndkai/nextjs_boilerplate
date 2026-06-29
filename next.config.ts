@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
-const API_UPSTREAM = process.env.API_UPSTREAM;
+// Per-environment upstream (uat/beta/production). Strip any trailing slash so
+// the rewrite destination never becomes `https://host//api/...`.
+const API_UPSTREAM = process.env.API_UPSTREAM?.replace(/\/+$/, "");
 
 const securityHeaders = [
   { key: "X-Content-Type-Options",    value: "nosniff" },

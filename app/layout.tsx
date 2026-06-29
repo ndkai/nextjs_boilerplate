@@ -16,7 +16,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi" className="h-full">
-      <body className="min-h-full flex flex-col antialiased">
+      {/* suppressHydrationWarning: trình duyệt mở rộng (vd Bitdefender) chèn
+          attribute như bis_register/__processed_* vào <body> trước khi React
+          hydrate, gây mismatch giả. Chỉ suppress đúng một cấp tại <body>. */}
+      <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>
